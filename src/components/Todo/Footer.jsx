@@ -1,6 +1,6 @@
 import React from 'react';
-import FilterLink from '~/TodoApp/containers/FilterLink';
-import { VisibilityFilters } from '~/TodoApp/actions';
+import FilterLink from '~/containers/FilterLink';
+import { VisibilityFilters } from '~/actions';
 
 const Footer = () => {
   return (
