@@ -28,9 +28,11 @@ const Footer = ({ activeCount, completedCount, onClearCompleted }) => {
         )}
       </Filters>
 
-      {!!completedCount && 
-        <button className='clear_completed' onClick={onClearCompleted}>Clear completed</button>
-      }
+      <ClearButton
+        className='clear_completed'
+        onClick={onClearCompleted}
+        disabled={!completedCount}
+      >Clear completed</ClearButton>
     </CustomFooter>
   )
 };
@@ -41,10 +43,65 @@ Footer.propTypes = {
   onClearCompleted: PropTypes.func.isRequired,
 };
 
-const CustomFooter = styled.footer``;
+const CustomFooter = styled.footer`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
-const TodoCount = styled.span``;
+const TodoCount = styled.span`
+  color: #808080;
 
-const Filters = styled.ul``;
+  & strong {
+    color: #101010;
+  }
+`;
+
+const Filters = styled.ul`
+  display: flex;
+  align-item: center;
+  justify-contene: center;
+
+  & li {
+    & a {
+      display: block;
+      padding: 0 0.8rem;
+      border: 1px solid #4f4f4f;
+      border-left-width: 0;
+      line-height: 2.2em;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color .22s;
+      position: relative
+      z-index: 1;
+
+      &:not(.selected):hover {
+        background-color: rgba(222, 222, 222, 0.8);
+      }
+
+      &.selected {
+        cursor: inherit;
+        background-color: #cbc8c8;
+        border-color: #808080;
+        color: #808080;
+        z-index: -1;
+      }
+    }
+    
+    &:first-of-type a {
+      border-left-width: 1px;
+      border-radius: 4px 0 0 4px;
+    }
+    
+    &:last-of-type a {
+      border-radius: 0 4px 4px 0;
+    }
+  }
+`;
+
+const ClearButton = styled.button`
+  visibility: ${props => props.disabled ? 'hidden' : 'visible'};
+  font-size: 14px;
+`;
 
 export default Footer;

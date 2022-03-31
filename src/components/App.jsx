@@ -3,12 +3,16 @@ import { Routes, Route } from 'react-router-dom';
 
 import Layout from './Layout';
 import Todo from './Todo';
+import Cart from './Cart';
+import Async from './Async';
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Todo />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/async" element={<Async />} />
         <Route path="*" element={<NoMatch />} />
       </Route>
     </Routes>

@@ -10,7 +10,12 @@ const Layout = () => (
           <Link to="/">todos</Link>
         </li>
         <li className="disabled">
-          <Link to="/cart">shopping cart</Link>
+          {/* {<Link to="/cart">shopping cart</Link>} */}
+          <span>shopping cart</span>
+        </li>
+        <li className="disabled">
+          {/* {<Link to="/async">async load</Link>} */}
+          <span>async load</span>
         </li>
       </ul>
     </CustomNav>
@@ -29,6 +34,7 @@ const CustomNav = styled.nav`
   width: 100%;
   padding: 0 16px;
   border-bottom: 1px solid #eee;
+  z-index: 9;
 
   & > ul {
     display flex;
@@ -41,7 +47,7 @@ const CustomNav = styled.nav`
     &.disabled {
       color: #cbc8c8;
 
-      & a { cursor: not-allowed}
+      & a { cursor: not-allowed }
     }
   }
 
@@ -62,6 +68,7 @@ const ContentLayout = styled.div`
   flex-direction: column;
   min-height: 100vh;
   padding: 60px 1rem 1rem;
+  position: relative;
 `;
 
 export default Layout;
