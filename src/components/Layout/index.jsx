@@ -9,11 +9,13 @@ const Layout = () => (
         <li>
           <Link to="/">todos</Link>
         </li>
-        <li>
-          <Link to="/cart">shopping cart</Link>
+        <li className="disabled">
+          {/* {<Link to="/cart">shopping cart</Link>} */}
+          <span>shopping cart</span>
         </li>
         <li className="disabled">
-          <Link to="/async">async load</Link>
+          {/* {<Link to="/async">async load</Link>} */}
+          <span>async load</span>
         </li>
       </ul>
     </CustomNav>
@@ -45,7 +47,7 @@ const CustomNav = styled.nav`
     &.disabled {
       color: #cbc8c8;
 
-      & a { cursor: not-allowed}
+      & a { cursor: not-allowed }
     }
   }
 
