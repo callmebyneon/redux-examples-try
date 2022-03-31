@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect';
-
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '~/constants/TodoFilters';
 
 const getVisibilityFilter = state => state.visibilityFilter;

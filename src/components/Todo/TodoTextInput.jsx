@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import styled from 'styled-components';
 
 const TodoTextInput = ({ onSave, text, placeholder, editing, newTodo }) => {
   const [value, setValue] = useState(text || '');
 
   const handleSubmit = e => {
-    const text_ = e.target.value.trim();
+    const text = e.target.value.trim();
     if (e.which === 13) { // press ENTER key
-      onSave(text_);
+      onSave(text);
+      
       if (newTodo) {
         setValue('');
       }
@@ -26,7 +28,7 @@ const TodoTextInput = ({ onSave, text, placeholder, editing, newTodo }) => {
   };
 
   return (
-    <input className={
+    <TodoInput className={
       classnames({
         edit: editing,
         'new-todo': newTodo
@@ -48,6 +50,16 @@ TodoTextInput.propTypes = {
   placeholder: PropTypes.string,
   editing: PropTypes.bool,
   newTodo: PropTypes.bool
-}
+};
+
+const TodoInput = styled.input`
+  width: 100%;
+  padding: 0.5em 1em 0.5em;
+  font-size: 1rem;
+  border: 1px solid #4f4f4f;
+  border-radius: 6px;
+  font-family: inherit;
+  line-height: 1em;
+`;
 
 export default TodoTextInput;
