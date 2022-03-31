@@ -9,12 +9,11 @@ const Layout = () => (
         <li>
           <Link to="/">todos</Link>
         </li>
-        <li className="disabled">
-          {/* {<Link to="/cart">shopping cart</Link>} */}
-          <span>shopping cart</span>
+        <li>
+          <Link to="/cart">shopping cart</Link>
         </li>
         <li className="disabled">
-          {/* {<Link to="/async">async load</Link>} */}
+          {/* <Link to="/async">async load</Link> */}
           <span>async load</span>
         </li>
       </ul>
