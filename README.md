@@ -1,19 +1,16 @@
 # Redux examples try
 
 
-This branch follows below example.
+This repository follows below example from [redux document](https://ko.redux.js.org/introduction/getting-started).
 
-> [https://ko.redux.js.org/introduction/examples/#todos-with-undo](https://ko.redux.js.org/introduction/examples/#todos-with-undo)   
-   
-### Example Page
-![화면 예시](./src/assets/image/todo-example-image.png)
+- [#todomvc](https://ko.redux.js.org/introduction/examples/#todomvc)   
 
+- [#shopping-cart](https://ko.redux.js.org/introduction/examples/#%EC%87%BC%ED%95%91-%EC%B9%B4%ED%8A%B8shopping-cart)   
 
----
+- [#async](https://ko.redux.js.org/introduction/examples/#%EB%B9%84%EB%8F%99%EA%B8%B0async)
 
 
-And this repository was started following below post.
-> [https://dev-yakuza.posstree.com/ko/react/start/](https://dev-yakuza.posstree.com/ko/react/start/)
+
 
 
 
