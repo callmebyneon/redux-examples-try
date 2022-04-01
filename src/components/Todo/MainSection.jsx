@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Footer from './Footer';
 import VisibleTodoList from '~/containers/Todo/VisibleTodoList';
 
+import theme from '~/theme';
+
 
 const MainSection = ({ todosCount, completedCount, actions }) => (
   <CustomSection>
@@ -44,16 +46,6 @@ const CanToggle = styled.span`
   position: absolute;
   left: 0;
 `;
-
-const theme = {
-  input: {
-    color: {
-      default: { main: '#4f4f4f', back: '#fefefe' },
-      checked: { main: '#fefefe', back: '#808080' },
-      disabled: { main: '#cbc8c8', back: '#fefefe' },
-    }
-  }
-};
 
 const ToggleAll = styled.input.attrs({ 
   className: 'toggle-all',
