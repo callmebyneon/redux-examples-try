@@ -2,19 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, Outlet } from 'react-router-dom';
 
+import theme from '~/theme';
+
 const Layout = () => (
   <div>
     <CustomNav>
       <ul>
         <li>
-          <Link to="/">todos</Link>
+          <Link to="/todo">todos</Link>
+        </li>
+        <li>
+          <Link to="/">shopping cart</Link>
         </li>
         <li className="disabled">
-          {/* {<Link to="/cart">shopping cart</Link>} */}
-          <span>shopping cart</span>
-        </li>
-        <li className="disabled">
-          {/* {<Link to="/async">async load</Link>} */}
+          {/* <Link to="/async">async load</Link> */}
           <span>async load</span>
         </li>
       </ul>
@@ -33,7 +34,7 @@ const CustomNav = styled.nav`
   right: 0;
   width: 100%;
   padding: 0 16px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid ${theme.divider.color.default};
   z-index: 9;
 
   & > ul {
@@ -45,7 +46,7 @@ const CustomNav = styled.nav`
     margin: 1rem;
 
     &.disabled {
-      color: #cbc8c8;
+      color: ${theme.text.color.disabled};
 
       & a { cursor: not-allowed }
     }

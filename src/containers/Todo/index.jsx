@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Header from '~/containers/Todo/Header';
-import MainSection from '~/containers/Todo/MainSection';
+import Header from './Header';
+import MainSection from './MainSection';
 
 
 const Todo = () => (
