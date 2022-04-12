@@ -9,10 +9,10 @@ const Layout = () => (
     <CustomNav>
       <ul>
         <li>
-          <Link to="/">todos</Link>
+          <Link to="/todo">todos</Link>
         </li>
         <li>
-          <Link to="/cart">shopping cart</Link>
+          <Link to="/">shopping cart</Link>
         </li>
         <li className="disabled">
           {/* <Link to="/async">async load</Link> */}
