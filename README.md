@@ -52,7 +52,7 @@ This repository follows below example from [redux document](https://ko.redux.js.
  ┃ ┃ ┣ MainSection.jsx
  ┃ ┃ ┗ VisibleTodoList.jsx
  ┃ ┗ App.jsx
- ┣ 📁reducers
+ ┣ 📁modules
  ┃ ┣ 📁Todo
  ┃ ┃ ┣ todos.jsx
  ┃ ┃ ┣ todos.spec.jsx
