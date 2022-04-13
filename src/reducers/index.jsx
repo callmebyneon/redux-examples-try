@@ -8,6 +8,9 @@ import visibilityFilter from './Todo/visibilityFilter';
 import cart, * as fromCart from './Cart/cart';
 import products, * as fromProducts from './Cart/products';
 
+//* Async
+import { postsBySubreddit, selectedSubreddit } from './Async';
+
 
 const getAddedIds = state => fromCart.getAddedIds(state.cart);
 const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id);
@@ -34,5 +37,7 @@ export default combineReducers({
   todos,
   visibilityFilter,
   cart,
-  products
+  products,
+  postsBySubreddit,
+  selectedSubreddit
 });
