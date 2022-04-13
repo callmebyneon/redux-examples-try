@@ -24,10 +24,11 @@ const byId = (state = {}, action) => {
         }, {})
       }
     default:
-      if (action.productId) {
+      const { productId } = action;
+      if (productId) {
         return {
           ...state,
-          [action.productId]: products(state[productId], action)
+          [productId]: products(state[productId], action)
         }
       }
       return state
@@ -43,6 +44,7 @@ const visibleIds = (state = [], action) => {
   }
 };
 
+//productsReducer
 export default combineReducers({
   byId,
   visibleIds

@@ -4,11 +4,12 @@ This repository follows below example from [redux document](https://ko.redux.js.
 
 - [#todomvc](https://ko.redux.js.org/introduction/examples/#todomvc)
 
+- [#shopping-cart](https://ko.redux.js.org/introduction/examples/#%EC%87%BC%ED%95%91-%EC%B9%B4%ED%8A%B8shopping-cart)
 
 ```
 📁src
  ┣ 📁actions
- ┃ ┗ TodoAction.jsx
+ ┃ ┗ TodoActions.jsx
  ┣ 📁assets
  ┃ ┣ 📁image
  ┃ ┃ ┣ todo-basic-example-image.png

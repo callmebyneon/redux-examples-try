@@ -7,7 +7,7 @@ export const CLEAR_COMPLETED = 'todos/CLEAR_COMPLETED';
 export const SET_VISIBILITY_FILTER = 'todos/SET_VISIBILITY_FILTER';
 
 export const ADD_TO_CART = 'cart/ADD_TO_CART';
-export const CHECKOUT_REQUEST = 'cart/CHECKOUT_REQUEST';
-export const CHECKOUT_SUCCESS = 'cart/CHECKOUT_FAILURE';
+export const CHECKOUT = 'cart/CHECKOUT';
+export const CHECKOUT_SUCCESS = 'cart/CHECKOUT_SUCCESS';
 export const CHECKOUT_FAILURE = 'cart/CHECKOUT_FAILURE';
 export const RECEIVE_PRODUCTS = 'cart/RECEIVE_PRODUCTS';
