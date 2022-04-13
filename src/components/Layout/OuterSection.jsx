@@ -7,6 +7,10 @@ const OuterSection = styled.div`
   flex-direction: column;
   height: fit-content;
   position: relative;
+
+  & > * {
+    width: 100%;
+  }
 `;
 
 export default  OuterSection;

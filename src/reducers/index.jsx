@@ -14,26 +14,6 @@ const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id);
 const getProduct = (state, id) => fromProducts.getProduct(state.products, id);
 
 export const getTotal = state => {
-  console.log('1 state',state);
-  //> {
-  //   "todos": [
-  //       {
-  //           "text": "Use Redux",
-  //           "completed": false,
-  //           "id": 0
-  //       }
-  //   ],
-  //   "visibilityFilter": "show_all",
-  //   "cart": {
-  //       "addedIds": [],
-  //       "quantityById": {}
-  //   },
-  //   "products": {
-  //       "byId": {},
-  //       "visibleIds": []
-  //   }
-  // }
-
   return getAddedIds(state)
           .reduce((total, id) =>
             total + getProduct(state, id).price * getQuantity(state, id),
@@ -43,11 +23,9 @@ export const getTotal = state => {
 };
 
 export const getCartProducts = state => {
-  
-  console.log('2 state',state);
   getAddedIds(state).map(id => ({
     ...getProduct(state, id),
-    quantity: gqtQuantity(state, id)
+    quantity: getQuantity(state, id)
   }))
 }
 

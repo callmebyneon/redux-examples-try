@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { setVisibilityFilter } from '~/actions/TodoAction';
+import { setVisibilityFilter } from '~/actions/TodoActions';
 
 import Link from '~/components/Todo/Link';
 

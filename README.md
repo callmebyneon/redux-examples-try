@@ -9,7 +9,7 @@ This repository follows below example from [redux document](https://ko.redux.js.
 ```
 📁src
  ┣ 📁actions
- ┃ ┗ TodoAction.jsx
+ ┃ ┗ TodoActions.jsx
  ┣ 📁assets
  ┃ ┣ 📁image
  ┃ ┃ ┣ todo-basic-example-image.png

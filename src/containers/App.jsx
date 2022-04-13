@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import Layout from '../components/Layout';
 import Todo from './Todo';
-import Cart from '../components/Cart';
-import Async from '../components/Async';
+import Cart from './Cart';
+import Async from './Async';
 
 const App = () => {
   return (

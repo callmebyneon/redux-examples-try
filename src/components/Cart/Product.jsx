@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
+
+const ProductNamespace = styled.span`
+  margin-right: 1rem;
+  white-space: wrap;
+  word-break: keep-all;
+`;
 
 const Product = ({ price, quantity, title }) => {
   return (
-    <div>
+    <ProductNamespace>
       {title} - &#36;{price}{quantity ? ` x ${quantity}` : null}
-    </div>
+    </ProductNamespace>
   );
 };
 

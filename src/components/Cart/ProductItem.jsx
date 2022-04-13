@@ -1,9 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
 import Product from './Product';
 
+const ProductItemFlexbox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
+`;
+
 const ProductItem = ({ product, onAddToCartClicked }) => (
-  <div style={{ marginBottom: 20 }}>
+  <ProductItemFlexbox>
     <Product
       title={product.title}
       price={product.price}
@@ -15,7 +25,7 @@ const ProductItem = ({ product, onAddToCartClicked }) => (
     >
       {product.inventory > 0 ? 'Add to cart' : 'Sold Out'}
     </button>
-  </div>
+  </ProductItemFlexbox>
 );
 
 ProductItem.propTypes = {

@@ -9,7 +9,7 @@ const Layout = () => (
     <CustomNav>
       <ul>
         <li>
-          <Link to="/todo">todos</Link>
+          <Link to="/">todos</Link>
         </li>
         <li>
           <Link to="/cart">shopping cart</Link>

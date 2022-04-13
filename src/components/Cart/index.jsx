@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Product from './Product';
 
 const Cart = ({ products, total, onCheckoutClicked }) => {
-  const hasProducts = Boolean(products?.length > 0);
+  const hasProducts = products?.length > 0;
   const nodes = hasProducts ? (
     products.map(prod =>
       <Product

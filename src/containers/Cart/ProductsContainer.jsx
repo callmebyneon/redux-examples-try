@@ -1,22 +1,26 @@
-import React from 'react';
+import React, { useSelector } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addToCart } from '~/actions/CartActions';
-import { getVisibleProducts } from '~/modules/Cart/products';
+import { getVisibleProducts } from '~/reducers/Cart/products';
 
 import ProductItem from '~/components/Cart/ProductItem'
 import ProductsList from '~/components/Cart/ProductsList'
 
-const ProductsContainer = ({ products, addToCart }) => (
-  <ProductsList title="Products">
-    {products.map(product => 
-      <ProductItem
-        key={product.id}
-        product={product}
-        onAddRoCartClicked={() => addToCart(product.id)}
-      />)}
-  </ProductsList>
-);
+const ProductsContainer = ({ products, addToCart }) => {
+  return (
+    <ProductsList title="Products">
+      {products.map(product => 
+        <ProductItem
+          key={product.id}
+          product={product}
+          onAddToCartClicked={() => addToCart(product.id)}
+        />)}
+    </ProductsList>
+  )
+};
+
+// export default ProductsContainer;
 
 ProductsContainer.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({

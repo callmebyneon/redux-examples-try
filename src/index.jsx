@@ -6,8 +6,11 @@ import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import { BrowserRouter } from "react-router-dom";
 
+import { getAllProducts } from './actions/CartActions';
 import App from './containers/App';
-import rootReducer from './modules';
+import rootReducer from './reducers';
+
+import { composeWithDevTools } from '@redux-devtools/extension';
 
 import './assets/scss/index.scss';
 
@@ -18,10 +21,14 @@ if (process.env.NODE_ENV !== 'production') {
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(
-    ...middleware
+  composeWithDevTools(
+    applyMiddleware(
+      ...middleware
+    )
   )
 );
+
+store.dispatch(getAllProducts());
 
 ReactDOM.render(
   <BrowserRouter>

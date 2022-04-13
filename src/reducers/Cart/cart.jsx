@@ -1,7 +1,7 @@
 // IMPORT Action types
 import {
   ADD_TO_CART,
-  CHECKOUT_REQUEST,
+  CHECKOUT,
   CHECKOUT_FAILURE
 } from '~/constants/ActionTypes';
 
@@ -27,13 +27,14 @@ const addedIds = (state = initialState.addedIds, action) => {
 
 const quantityById = (state = initialState.quantityById, action) => {
   switch (action.type) {
-    case ADD_TO_CART: 
+    case ADD_TO_CART:
+      const { productId } = action;
       return {
         ...state,
-        [action.productId]: (state[productId] || 0) + 1
+        [productId]: (state[productId] || 0) + 1
       }
-      default:
-        return state
+    default:
+      return state
   }
 };
 
@@ -42,7 +43,7 @@ export const getAddedIds = state => state.addedIds;
 
 const cart = (state = initialState, action) => {
   switch (action.type) {
-    case CHECKOUT_REQUEST:
+    case CHECKOUT:
       return initialState
     case CHECKOUT_FAILURE:
       return action.cart
