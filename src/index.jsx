@@ -1,13 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { createLogger } from 'redux-logger';
-import thunk from 'redux-thunk';
-import rootReducer from './modules';
-
 import { BrowserRouter } from "react-router-dom";
+
 import App from './containers/App';
+import rootReducer from './reducers';
 
 import './assets/scss/index.scss';
 

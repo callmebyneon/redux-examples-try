@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import OuterSection from '../../components/Layout/OuterSection';
 import Header from './Header';
 import MainSection from './MainSection';
 
@@ -13,14 +14,6 @@ const Todo = () => (
   </OuterSection>
 );
 
-const OuterSection = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: fit-content;
-  position: relative;
-`;
 const Copyright = styled.span`
   margin-top: 2em;
   color: #cbc8c8;

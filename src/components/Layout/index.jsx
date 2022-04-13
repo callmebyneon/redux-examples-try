@@ -12,7 +12,7 @@ const Layout = () => (
           <Link to="/todo">todos</Link>
         </li>
         <li>
-          <Link to="/">shopping cart</Link>
+          <Link to="/cart">shopping cart</Link>
         </li>
         <li className="disabled">
           {/* <Link to="/async">async load</Link> */}
