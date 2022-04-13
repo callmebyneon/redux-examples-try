@@ -12,7 +12,7 @@ const CartContainer = ({ products, total, checkout }) => {
   const store = useStore();
   const isFirstLoaded = store.getState().products.visibleIds?.length === 0 || false;
 
-  if (isFirstLoaded) console.log('%c First Loaded!', 'color:yellow;font-size:20px;');
+  if (isFirstLoaded) console.log('%c No Data!', 'color:yellow;font-size:20px;');
   
   return (
     <Cart
@@ -34,20 +34,9 @@ CartContainer.propTypes = {
   checkout: PropTypes.func.isRequired
 };
 
-CartContainer.defaultProps = {
-  products: []
-}
+const mapStateToProps = (state) => ({
+  products: getCartProducts(state),
+  total: getTotal(state)
+});
 
-export default connect(
-  // MapStateToProps
-  (state) => {
-    console.log('# /connect..',state)
-    console.log('# /connect..',getCartProducts(state))
-    return {
-    products: getCartProducts(state),
-    total: getTotal(state)
-  }
-},
-  // MapDispatchToProps
-  { checkout }
-)(CartContainer);
+export default connect(mapStateToProps, { checkout })(CartContainer);

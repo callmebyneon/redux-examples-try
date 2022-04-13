@@ -5,10 +5,20 @@ import shop from '~/api/shop';
 import * as types from '~/constants/ActionTypes';
 
 //************* thunk functions (async action creator function)
-export const getAllProducts = () => async dispatch => {
-  const products = await shop.getProducts();
-  dispatch({ type: types.RECEIVE_PRODUCTS, products });
+const receiveProducts = (products) => ({
+  type: types.RECEIVE_PRODUCTS,
+  products
+});
+
+export const getAllProducts = () => (dispatch) => {
+  shop.getProducts((products) => {
+    dispatch(receiveProducts(products));
+  });
 };
+// export const getAllProducts = () => async dispatch => {
+//   const products = await shop.getProducts();
+//   dispatch({ type: types.RECEIVE_PRODUCTS, products });
+// };
 const addToCartUnsafe = (productId) => ({
   type: types.ADD_TO_CART,
   productId

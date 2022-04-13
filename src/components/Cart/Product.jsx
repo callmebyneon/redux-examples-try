@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-const ProductNamespace = styled.span`
+const ProductNamespace = styled.div`
   margin-right: 1rem;
   white-space: wrap;
   word-break: keep-all;

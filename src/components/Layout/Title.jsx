@@ -8,6 +8,7 @@ const Title = styled(({ className, children }) => (
   padding: 0 1rem;
   line-height: 2em;
   position: relative;
+  text-align: center;
 
   // tooltip
   // &:after {
