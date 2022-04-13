@@ -14,9 +14,8 @@ const Layout = () => (
         <li>
           <Link to="/cart">shopping cart</Link>
         </li>
-        <li className="disabled">
-          {/* <Link to="/async">async load</Link> */}
-          <span>async load</span>
+        <li>
+          <Link to="/async">async load</Link>
         </li>
       </ul>
     </CustomNav>
