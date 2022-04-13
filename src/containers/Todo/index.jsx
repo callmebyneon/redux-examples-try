@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Header from '~/containers/Todo/Header';
-import MainSection from '~/containers/Todo/MainSection';
+import OuterSection from '../../components/Layout/OuterSection';
+import Header from './Header';
+import MainSection from './MainSection';
 
 
 const Todo = () => (
@@ -13,14 +14,6 @@ const Todo = () => (
   </OuterSection>
 );
 
-const OuterSection = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: fit-content;
-  position: relative;
-`;
 const Copyright = styled.span`
   margin-top: 2em;
   color: #cbc8c8;

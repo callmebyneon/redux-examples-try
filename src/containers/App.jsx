@@ -1,10 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Layout from './Layout';
+import Layout from '../components/Layout';
 import Todo from './Todo';
-import Cart from './Cart';
-import Async from './Async';
+import Cart from '../components/Cart';
+import Async from '../components/Async';
 
 const App = () => {
   return (
