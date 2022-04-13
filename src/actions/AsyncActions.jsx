@@ -5,9 +5,9 @@ import { asyncActionTypes as types } from '~/constants/ActionTypes';
 
 //************* action creators
 export const selectSubreddit = subreddit => ({ type: types.SELECT_SUBREDDIT, subreddit });
-export const invalidateSubreddit = subreddit => ({ type: types.INVALID_SUBREDDIT, subreddit });
+export const invalidateSubreddit = subreddit => ({ type: types.INVALIDATE_SUBREDDIT, subreddit });
 export const requestPosts = subreddit => ({ type: types.GET_POSTS, subreddit });
-export const receivePosts = (subreddit, posts) => ({ 
+export const receivePosts = (subreddit, posts) => ({
   type: types.GET_POSTS_SUCCESS,
   subreddit,
   posts,
@@ -15,13 +15,15 @@ export const receivePosts = (subreddit, posts) => ({
 });
 
 const fetchPosts = subreddit => dispatch => {
-  dispatch(requestPosts(subreddit));
+  dispatch(requestPosts(subreddit))
   return fetch(`https://www.reddit.com/r/${subreddit}.json`)
     .then(response => response.json())
     .then(json => dispatch(
-      subreddit,
-      json.data.children.map(child => child.data)
-    ))
+      receivePosts(
+        subreddit,
+        json.data.children.map(child => child.data)
+      ))
+    )
 };
 
 const shouldFetchPosts = (state, subreddit) => {
@@ -32,10 +34,10 @@ const shouldFetchPosts = (state, subreddit) => {
   if (posts.isFetching) {
     return false
   }
-  return posts.didInvalidate
+  return posts.didInvalidate;
 };
 
-export const fetchPostsIfNeed = subreddit => (dispatch, getState) => {
+export const fetchPostsIfNeeded = subreddit => (dispatch, getState) => {
   if (shouldFetchPosts(getState(), subreddit)) {
     return dispatch(fetchPosts(subreddit))
   }

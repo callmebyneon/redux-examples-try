@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
-import { selectSubreddit, fetchPostsIfNeed, invalidateSubreddit } from '~/actions/AsyncActions';
+import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from '~/actions/AsyncActions';
 import styled from '@emotion/styled';
 
 import OuterSection from '~/components/Layout/OuterSection';
@@ -9,7 +9,20 @@ import Picker from '~/components/Async/Picker';
 import Posts from '~/components/Async/Posts';
 
 const PostList = styled.div`
-  opacity: ${props => props.isFetching ? 0.5 : 1}
+  max-width: 640px;
+  padding-bottom: ${props => props.isFetching ? '1rem' : '2rem'};
+  opacity: ${props => props.isFetching ? 0.5 : 1};
+
+  & li {
+    list-style-position: outside;
+    list-style-type: circle;
+    word-break: keep-all;
+    transition: color 0.22s;
+
+    &:hover {
+      color: #0075FF;
+    }
+  }
 `;
 
 const Async = ({ selectedSubreddit, posts, isFetching, lastUpdated }) => {
@@ -22,11 +35,11 @@ const Async = ({ selectedSubreddit, posts, isFetching, lastUpdated }) => {
     e.preventDefault();
     
     dispatch(invalidateSubreddit(selectedSubreddit));
-    dispatch(fetchPostsIfNeed(selectedSubreddit));
+    dispatch(fetchPostsIfNeeded(selectedSubreddit));
   };
 
   useEffect(() => {
-    dispatch(fetchPostsIfNeed(selectedSubreddit))
+    dispatch(fetchPostsIfNeeded(selectedSubreddit))
   }, [selectedSubreddit]);
   
   return (
@@ -44,7 +57,7 @@ const Async = ({ selectedSubreddit, posts, isFetching, lastUpdated }) => {
           </span>
         }
         {!isFetching &&
-          <button onClick={handleRefreshClick}>Refresh</button>
+          <button className='--small' onClick={handleRefreshClick}>Refresh</button>
         }
       </p>
       {isEmpty
