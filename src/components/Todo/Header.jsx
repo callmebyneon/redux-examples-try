@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import TodoTextInput from './TodoTextInput'
+import Title from '~/components/Layout/Title';
+import TodoTextInput from './TodoTextInput';
 
-const Header = ({ addTodo }) => (
-  <HeaderSection>
-    <h1>todos</h1>
+
+const Header = styled(({ className, addTodo }) => (
+  <header className={className}>
+    <Title>todos</Title>
     <TodoTextInput
       newTodo
       onSave={(text) => {
@@ -16,53 +18,13 @@ const Header = ({ addTodo }) => (
       }}
       placeholder="What needs to be done?"
     />
-  </HeaderSection>
-);
-
-Header.propTypes = {
-  addTodo: PropTypes.func.isRequired
-};
-
-const HeaderSection = styled.header`
+  </header>
+))`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-
-  & h1 {
-    max-width: 80vw;
-    padding: 0 1rem;
-    line-height: 2em;
-    position: relative;
-
-    // tooltip
-    // &:after {
-    //   content: 'Editable title';
-    //   display: block;
-    //   width: fit-content;
-    //   padding: 0 1em;
-    //   border-radius: 4px;
-    //   position: absolute;
-    //   left: 50%;
-    //   bottom: -1.4em;
-    //   transform: translate3D(-50%, 0, 0);
-    //   color: #fefefe;
-    //   white-space: nowrap;
-    //   line-height: 2.2em;
-    //   font-size: 14px;
-    //   font-weight: normal;
-    //   background: hsl(0deg 0% 9% / 80%);
-    //   visibility: hidden;
-    //   opacity: 0;
-    //   transition: opacity .22s;
-    // }
-
-    // &:hover:after {
-    //   visibility: visible;
-    //   opacity: 1;
-    // }
-  }
 
   & input{
     &.new-todo {
@@ -76,5 +38,9 @@ const HeaderSection = styled.header`
     }
   }
 `;
+
+Header.propTypes = {
+  addTodo: PropTypes.func.isRequired
+};
 
 export default Header;

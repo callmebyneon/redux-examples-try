@@ -5,6 +5,8 @@ import classnames from 'classnames';
 
 import TodoTextInput from './TodoTextInput';
 
+import theme from '~/theme';
+
 
 const TodoItem = ({ todo, editTodo, completeTodo, deleteTodo }) => {
   const [editing, setEditing] = useState(false);
@@ -66,16 +68,6 @@ const ItemView = styled.div`
   align-items: center;
   position: relative;
 `;
-
-const theme = {
-  input: {
-    color: {
-      default: { main: '#4f4f4f', back: '#fefefe' },
-      checked: { main: '#fefefe', back: '#0075ff' },
-      disabled: { main: '#cbc8c8', back: '#fefefe' },
-    }
-  }
-};
 
 const Toggle = styled.input.attrs({ 
   className: 'toggle',

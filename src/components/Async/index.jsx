@@ -1,7 +1,9 @@
 import React from 'react';
 
+import Title from '~/components/Layout/Title';
+
 const Async = () => (
-  <h1>Async</h1>
+  <Title>Async</Title>
 )
 
 export default Async;
