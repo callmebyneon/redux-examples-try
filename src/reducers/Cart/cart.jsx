@@ -1,9 +1,5 @@
 // IMPORT Action types
-import {
-  ADD_TO_CART,
-  CHECKOUT,
-  CHECKOUT_FAILURE
-} from '~/constants/ActionTypes';
+import { cartActionTypes as types } from '~/constants/ActionTypes';
 
 
 // DEFINE Initial State
@@ -15,7 +11,7 @@ const initialState = {
 // MAKE Action Creator function
 const addedIds = (state = initialState.addedIds, action) => {
   switch (action.type) {
-    case ADD_TO_CART:
+    case types.ADD_TO_CART:
       if (state.indexOf(action.productId) !== -1) {
         return state
       }
@@ -27,7 +23,7 @@ const addedIds = (state = initialState.addedIds, action) => {
 
 const quantityById = (state = initialState.quantityById, action) => {
   switch (action.type) {
-    case ADD_TO_CART:
+    case types.ADD_TO_CART:
       const { productId } = action
       return {
         ...state,
@@ -43,9 +39,9 @@ export const getAddedIds = state => state.addedIds;
 
 const cart = (state = initialState, action) => {
   switch (action.type) {
-    case CHECKOUT:
+    case types.CHECKOUT:
       return initialState
-    case CHECKOUT_FAILURE:
+    case types.CHECKOUT_FAILURE:
       return action.cart
     default:
       return {

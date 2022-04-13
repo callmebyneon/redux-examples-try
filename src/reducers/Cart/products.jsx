@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import { RECEIVE_PRODUCTS, ADD_TO_CART } from '~/constants/ActionTypes';
+import { cartActionTypes as types } from '~/constants/ActionTypes';
 
 const products = (state, action) => {
   switch (action.type) {
-    case ADD_TO_CART:
+    case types.ADD_TO_CART:
       return {
         ...state,
         inventory: state.inventory - 1
@@ -15,7 +15,7 @@ const products = (state, action) => {
 
 const byId = (state = {}, action) => {
   switch (action.type) {
-    case RECEIVE_PRODUCTS:
+    case types.RECEIVE_PRODUCTS:
       return {
         ...state,
         ...action.products.reduce((obj, product) => {
@@ -37,7 +37,7 @@ const byId = (state = {}, action) => {
 
 const visibleIds = (state = [], action) => {
   switch (action.type) {
-    case RECEIVE_PRODUCTS:
+    case types.RECEIVE_PRODUCTS:
       return action.products.map(product => product.id)
     default:
       return state

@@ -38,6 +38,12 @@
           background: #e2e2e2;
         }
       }
+
+      &.--small {
+        font-size: 12px;
+        padding: 0 1em;
+        line-height: 1.8em;
+      }
     }
   }
   

@@ -2,7 +2,7 @@
 import shop from '~/api/shop';
 
 //************* action types
-import * as types from '~/constants/ActionTypes';
+import { cartActionTypes as types } from '~/constants/ActionTypes';
 
 //************* thunk functions (async action creator function)
 const receiveProducts = (products) => ({

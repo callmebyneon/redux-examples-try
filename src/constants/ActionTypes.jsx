@@ -1,13 +1,25 @@
-export const ADD_TODO = 'todos/ADD_TODO';
-export const DELETE_TODO = 'todos/DELETE_TODO';
-export const EDIT_TODO = 'todos/EDIT_TODO';
-export const COMPLETE_TODO = 'todos/COMPLETE_TODO';
-export const COMPLETE_ALL_TODOS = 'todos/COMPLETE_ALL_TODOS';
-export const CLEAR_COMPLETED = 'todos/CLEAR_COMPLETED';
-export const SET_VISIBILITY_FILTER = 'todos/SET_VISIBILITY_FILTER';
+export const todoActionTypes = {
+  ADD_TODO: 'todos/ADD_TODO',
+  DELETE_TODO: 'todos/DELETE_TODO',
+  EDIT_TODO: 'todos/EDIT_TODO',
+  COMPLETE_TODO: 'todos/COMPLETE_TODO',
+  COMPLETE_ALL_TODOS: 'todos/COMPLETE_ALL_TODOS',
+  CLEAR_COMPLETED: 'todos/CLEAR_COMPLETED',
+  SET_VISIBILITY_FILTER: 'todos/SET_VISIBILITY_FILTER',
+}
 
-export const ADD_TO_CART = 'cart/ADD_TO_CART';
-export const CHECKOUT = 'cart/CHECKOUT';
-export const CHECKOUT_SUCCESS = 'cart/CHECKOUT_SUCCESS';
-export const CHECKOUT_FAILURE = 'cart/CHECKOUT_FAILURE';
-export const RECEIVE_PRODUCTS = 'cart/RECEIVE_PRODUCTS';
+export const cartActionTypes = {
+  ADD_TO_CART: 'cart/ADD_TO_CART',
+  CHECKOUT: 'cart/CHECKOUT',
+  CHECKOUT_SUCCESS: 'cart/CHECKOUT_SUCCESS',
+  CHECKOUT_FAILURE: 'cart/CHECKOUT_FAILURE',
+  RECEIVE_PRODUCTS: 'cart/RECEIVE_PRODUCTS',
+}
+
+export const asyncActionTypes = {
+  GET_POSTS: 'async/GET_POSTS',
+  GET_POSTS_SUCCESS: 'async/GET_POSTS_SUCCESS',
+  SELECT_SUBREDDIT: 'async/SELECT_SUBREDDIT',
+  INVALIDATE_SUBREDDIT: 'async/INVALIDATE_SUBREDDIT',
+}
+

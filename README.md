@@ -4,7 +4,13 @@ This repository follows below example from [redux document](https://ko.redux.js.
 
 - [#todomvc](https://ko.redux.js.org/introduction/examples/#todomvc)
 
-- [#shopping-cart](https://ko.redux.js.org/introduction/examples/#%EC%87%BC%ED%95%91-%EC%B9%B4%ED%8A%B8shopping-cart)
+- [#shopping-cart](https://redux.js.org/introduction/examples/#shopping-cart)
+
+- [#async](https://redux.js.org/introduction/examples/#async)
+
+### Example Page
+
+![화면 예시](./src/assets/image/async_load-example-image.png)
 
 ```
 📁src
