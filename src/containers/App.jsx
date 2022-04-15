@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 
 import Layout from '../components/Layout';
 import Todo from './Todo';
@@ -11,13 +11,15 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Todo />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/async" element={<Async />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="async" element={<Async />} />
         <Route path="*" element={<NoMatch />} />
       </Route>
     </Routes>
   )
 };
+
+export default App;
 
 const NoMatch = () => {
   return (
@@ -29,5 +31,3 @@ const NoMatch = () => {
     </div>
   );
 }
-
-export default App;

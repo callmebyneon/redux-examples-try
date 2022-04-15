@@ -17,6 +17,9 @@ const Layout = () => (
         <li>
           <Link to="/async">async load</Link>
         </li>
+        <li>
+          <Link to="/ismatch"><i>Is this existed page?</i></Link>
+        </li>
       </ul>
     </CustomNav>
 
@@ -33,6 +36,7 @@ const CustomNav = styled.nav`
   right: 0;
   width: 100%;
   padding: 0 16px;
+  background: ${theme.background.default};
   border-bottom: 1px solid ${theme.divider.color.default};
   z-index: 9;
 

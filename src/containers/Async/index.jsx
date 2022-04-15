@@ -8,6 +8,8 @@ import OuterSection from '~/components/Layout/OuterSection';
 import Picker from '~/components/Async/Picker';
 import Posts from '~/components/Async/Posts';
 
+import theme from '~/theme';
+
 const PostList = styled.div`
   max-width: 640px;
   padding-bottom: ${props => props.isFetching ? '1rem' : '2rem'};
@@ -20,7 +22,7 @@ const PostList = styled.div`
     transition: color 0.22s;
 
     &:hover {
-      color: #0075FF;
+      color: ${theme.text.active};
     }
   }
 `;
