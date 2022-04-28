@@ -8,10 +8,6 @@ This repository follows below example from [redux document](https://ko.redux.js.
 
 - [#async](https://redux.js.org/introduction/examples/#async)
 
-### Example Page
-
-![화면 예시](./src/assets/image/async_load-example-image.png)
-
 ```
 📁src
  ┣ 📁actions
