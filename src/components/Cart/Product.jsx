@@ -6,12 +6,15 @@ const ProductNamespace = styled.div`
   margin-right: 1rem;
   white-space: wrap;
   word-break: keep-all;
+  & em {
+    color: grey
+  }
 `;
 
 const Product = ({ price, quantity, title }) => {
   return (
     <ProductNamespace>
-      {title} - &#36;{price}{quantity ? ` x ${quantity}` : null}
+      {title} - <b>&#36;{price}</b><em>{quantity ? ` x ${quantity}` : null}</em>
     </ProductNamespace>
   );
 };
