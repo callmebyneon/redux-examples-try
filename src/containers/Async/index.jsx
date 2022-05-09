@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
 import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from '~/actions/AsyncActions';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 import OuterSection from '~/components/Layout/OuterSection';
 import Picker from '~/components/Async/Picker';
