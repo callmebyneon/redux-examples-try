@@ -15,15 +15,22 @@ export const receivePosts = (subreddit, posts) => ({
 });
 
 const fetchPosts = subreddit => dispatch => {
-  dispatch(requestPosts(subreddit))
+  dispatch(requestPosts(subreddit));
+  console.log('%c GET post -loading', 'color:skyblue');
   return fetch(`https://www.reddit.com/r/${subreddit}.json`)
     .then(response => response.json())
-    .then(json => dispatch(
+    .then(json => {
+      dispatch(
       receivePosts(
         subreddit,
         json.data.children.map(child => child.data)
       ))
-    )
+      console.log('%c GET post -success', 'color:yellowgreen');
+    })
+    .catch(e => {
+      console.error(e);
+      console.log('%c GET post -failure', 'color:tomato');
+    })
 };
 
 const shouldFetchPosts = (state, subreddit) => {
