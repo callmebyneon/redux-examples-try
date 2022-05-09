@@ -41,7 +41,7 @@ const CustomNav = styled.nav`
   z-index: 9;
 
   & > ul {
-    display flex;
+    display: flex;
     flex-direction: row;
   }
 
