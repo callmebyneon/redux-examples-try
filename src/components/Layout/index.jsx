@@ -18,6 +18,9 @@ const Layout = () => (
           <Link to="/async">async load</Link>
         </li>
         <li>
+          <Link to="/counter">advanced counter</Link>
+        </li>
+        <li>
           <Link to="/ismatch"><i>Is this existed page?</i></Link>
         </li>
       </ul>
