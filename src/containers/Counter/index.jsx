@@ -49,10 +49,15 @@ const Counter = ({}) => {
     setCount(count - value);
     setPath(`${path === "0" ? "" : path + " - "}${value}`);
   };
-  const addRandom = async (max = 15) => {
+  const addRandom = async function (max = 15) {
     const randomNumber = await fetchNumber(max);
     setCount(count + randomNumber);
     setPath(`${path === "0" ? "" : path + " + "}${randomNumber}`);
+    console.log('#1 path',path, typeof path); // #1 path 0 string
+    const randomNumber2 = await fetchNumber(max);
+    setCount(count + randomNumber2);
+    setPath(`${path === "0" ? "" : path + " + "}${randomNumber2}`);
+    console.log('#2 path',path, typeof path); // #2 path 0 string
   };
   const reset = () => {
     setCount(0);
