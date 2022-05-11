@@ -15,7 +15,7 @@ export const increament = diff => ({ type: type.INCREAMENT, diff });
 export const decreament = diff => ({ type: type.DECREAMENT, diff });
 export const reset = () => ({ type: type.RESET });
 
-//* Thunk Functions
+//* Thunk Function(s)
 export const addRandom = (max) => async (dispatch) => {
   dispatch({ type: type.GET_RANDOM });
   try {
