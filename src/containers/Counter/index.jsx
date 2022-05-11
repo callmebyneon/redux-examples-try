@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { fetchNumber } from '../../api/number';
+import { increament, decreament, addRandom, reset } from '../../reducers/Counter';
 
 import OuterSection from '~/components/Layout/OuterSection';
 import Title from '~/components/Layout/Title';
@@ -30,6 +31,9 @@ const CalcPath = styled.p`
   font-weight: normal;
   line-height: 1.4em;
   word-break: break-all;
+  &~.loader {
+    text-align: center;
+  }
 `;
 
 const Stack = styled.div`
@@ -37,32 +41,18 @@ const Stack = styled.div`
   flex-direction: ${props => props.direction || 'row'};
 `;
 
-const Counter = ({}) => {
-  const [count, setCount] = React.useState(0);
-  const [path, setPath] = React.useState(count.toString());
-
-  const increase = (value) => {
-    setCount(count + value);
-    setPath(`${path === "0" ? "" : path + " + "}${value}`);
-  };
-  const decrease = (value) => {
-    setCount(count - value);
-    setPath(`${path === "0" ? "" : path + " - "}${value}`);
-  };
-  const addRandom = async function (max = 15) {
-    const randomNumber = await fetchNumber(max);
-    setCount(count + randomNumber);
-    setPath(`${path === "0" ? "" : path + " + "}${randomNumber}`);
-    console.log('#1 path',path, typeof path); // #1 path 0 string
-    const randomNumber2 = await fetchNumber(max);
-    setCount(count + randomNumber2);
-    setPath(`${path === "0" ? "" : path + " + "}${randomNumber2}`);
-    console.log('#2 path',path, typeof path); // #2 path 0 string
-  };
-  const reset = () => {
-    setCount(0);
-    setPath("0");
-  };
+const Counter = () => {
+  const { isLoading, count, path } = useSelector(state => ({
+    isLoading: state.counter.isLoading,
+    count: state.counter.count,
+    path: state.counter.path,
+  }));
+  const dispatch = useDispatch();
+  
+  const onIncrease = diff => dispatch(increament(diff));
+  const onDecrease = diff => dispatch(decreament(diff));
+  const onAddRandom = async (max = 15) => dispatch(addRandom(max));
+  const onReset = () => dispatch(reset());
   
   return (
     <OuterSection>
@@ -71,21 +61,22 @@ const Counter = ({}) => {
       {/* Advanced Counter */}
       <CalcResult>{count}</CalcResult>
       <CalcPath>{path}</CalcPath>
+      {isLoading && <p className='loader'>loading...</p>}
       <hr />
       <Stack direction="row">
-        <button onClick={() => increase(1)}>+1</button>
-        <button onClick={() => decrease(1)}>-1</button>
-        <button onClick={() => increase(5)}>+5</button>
-        <button onClick={() => decrease(5)}>-5</button>
+        <button disabled={isLoading} onClick={() => onIncrease(1)}>+1</button>
+        <button disabled={isLoading} onClick={() => onDecrease(1)}>-1</button>
+        <button disabled={isLoading} onClick={() => onIncrease(5)}>+5</button>
+        <button disabled={isLoading} onClick={() => onDecrease(5)}>-5</button>
       </Stack>
       <Stack direction="row">
-        <button onClick={() => addRandom(30)}>add random number</button>
+        <button disabled={isLoading} onClick={() => onAddRandom(30)}>add random number</button>
       </Stack>
       <Stack direction="row">
-        <button onClick={reset}>reset</button>
+        <button disabled={isLoading} onClick={() => onReset()}>reset</button>
       </Stack>
     </OuterSection>
   );
-}
+};
 
 export default Counter;
