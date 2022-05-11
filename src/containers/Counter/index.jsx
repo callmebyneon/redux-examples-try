@@ -37,8 +37,10 @@ const CalcPath = styled.p`
 `;
 
 const Stack = styled.div`
+  width: 225px;
   display: flex;
   flex-direction: ${props => props.direction || 'row'};
+  align-self: center;
 `;
 
 const Counter = () => {

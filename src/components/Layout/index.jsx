@@ -1,36 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 import theme from '~/theme';
 
-const Layout = () => (
-  <div>
-    <CustomNav>
-      <ul>
-        <li>
-          <Link to="/">todos</Link>
-        </li>
-        <li>
-          <Link to="/cart">shopping cart</Link>
-        </li>
-        <li>
-          <Link to="/async">async load</Link>
-        </li>
-        <li>
-          <Link to="/counter">advanced counter</Link>
-        </li>
-        <li>
-          <Link to="/ismatch"><i>Is this existed page?</i></Link>
-        </li>
-      </ul>
-    </CustomNav>
+const Layout = () => {
+  const navItems = [
+    { id: 0, path: '/', text: 'todos' },
+    { id: 1, path: '/cart', text: 'shopping cart' },
+    { id: 2, path: '/async', text: 'async load' },
+    { id: 3, path: '/counter', text: 'advanced counter' },
+    { id: 4, path: '/ismatch', html: <i>Is this existed page?</i> },
+  ]
+  return (
+    <div>
+      <CustomNav>
+        <ul>
+          {navItems.map(nav => (
+            <li key={nav.id}>
+              <NavLink
+                className={({ isActive }) => isActive ? "active" : null}
+                to={nav.path}
+              >{nav.text || nav.html}</NavLink>
+            </li>
+          ))}
+        </ul>
+      </CustomNav>
 
-    <ContentLayout>
-      <Outlet />
-    </ContentLayout>
-  </div>
-);
+      <ContentLayout>
+        <Outlet />
+      </ContentLayout>
+    </div>
+)
+};
 
 const CustomNav = styled.nav`
   position: fixed;
@@ -51,10 +53,17 @@ const CustomNav = styled.nav`
   & > ul > li {
     margin: 1rem;
 
+    & .active {
+      font-weight: bold;
+      border-bottom: 2px solid;
+    }
+
     &.disabled {
       color: ${theme.text.color.disabled};
 
-      & a { cursor: not-allowed }
+      & a { 
+        cursor: not-allowed
+      }
     }
   }
 
