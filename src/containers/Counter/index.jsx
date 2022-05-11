@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { increament, decreament, addRandom, reset } from '../../reducers/Counter';
+import { increament, decreament, applyRandom, reset } from '../../reducers/Counter';
 
 import OuterSection from '~/components/Layout/OuterSection';
 import Title from '~/components/Layout/Title';
@@ -22,7 +22,7 @@ const CalcPath = styled.p`
   width: 100%;
   max-width: 460px;
   margin: 0.5em 0;
-  padding: 0.5em;
+  padding: 0.5em 0.815em;
   color: ${theme.text.color.default};
   background: ${theme.divider.color.default};
   border-radius: 0.5rem;
@@ -51,7 +51,7 @@ const Counter = () => {
   
   const onIncrease = diff => dispatch(increament(diff));
   const onDecrease = diff => dispatch(decreament(diff));
-  const onAddRandom = async (max = 15) => dispatch(addRandom(max));
+  const onApplyRandom = async (max = 15) => dispatch(applyRandom(max));
   const onReset = () => dispatch(reset());
   
   return (
@@ -70,7 +70,7 @@ const Counter = () => {
         <button disabled={isLoading} onClick={() => onDecrease(5)}>-5</button>
       </Stack>
       <Stack direction="row">
-        <button disabled={isLoading} onClick={() => onAddRandom(30)}>add random number</button>
+        <button disabled={isLoading} onClick={() => onApplyRandom(30)}>add random number twice</button>
       </Stack>
       <Stack direction="row">
         <button disabled={isLoading} onClick={() => onReset()}>reset</button>

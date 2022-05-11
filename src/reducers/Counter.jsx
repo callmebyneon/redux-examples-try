@@ -6,7 +6,6 @@ const type = {
   INCREAMENT: 'counter/INCREAMENT',
   DECREAMENT: 'counter/DECREAMENT',
   GET_RANDOM: 'counter/GET_RANDOM',
-  GET_RANDOM_FAILURE: 'counter/GET_RANDOM_FAILURE',
   RESET: 'counter/RESET',
 }
 
@@ -16,13 +15,16 @@ export const decreament = diff => ({ type: type.DECREAMENT, diff });
 export const reset = () => ({ type: type.RESET });
 
 //* Thunk Function(s)
-export const addRandom = (max) => async (dispatch) => {
+export const applyRandom = (max) => async (dispatch) => {
   dispatch({ type: type.GET_RANDOM });
   try {
     const randomNumber = await fetchNumber(max);
     dispatch({ type: type.INCREAMENT, diff: randomNumber });
+    const randomNumber2 = await fetchNumber(max);
+    dispatch({ type: type.INCREAMENT, diff: randomNumber2 });
+    dispatch({ type: type.GET_RANDOM });
   } catch (e) {
-    dispatch({ type: type.GET_RANDOM_FAILURE, error: e });
+    dispatch({ type: type.GET_RANDOM, error: e });
   }
 };
 
@@ -36,7 +38,7 @@ const counter = (state = initialState, action) => {
   switch (action.type) {
     case type.INCREAMENT: 
       return {
-        isLoading: false,
+        ...state,
         count: state.count + action.diff,
         path: `${state.path === "0" ? "" : state.path + " + "}${action.diff}`
       };
@@ -49,12 +51,7 @@ const counter = (state = initialState, action) => {
     case type.GET_RANDOM:
       return {
         ...state,
-        isLoading: true
-      };
-    case type.GET_RANDOM_FAILURE:
-      return {
-        ...state,
-        isLoading: false
+        isLoading: !state.isLoading
       };
     case type.RESET:
       return initialState;
