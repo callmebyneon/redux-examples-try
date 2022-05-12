@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { all } from 'redux-saga/effects';
 
 //* Todo
 import todos from './Todo/todos';
@@ -11,7 +12,11 @@ import products, * as fromProducts from './Cart/products';
 //* Async
 import { postsBySubreddit, selectedSubreddit } from './Async';
 
+//* Counter
+import counter, { counterSaga } from './Counter';
 
+
+//******* for shopping cart functions
 const getAddedIds = state => fromCart.getAddedIds(state.cart);
 const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id);
 const getProduct = (state, id) => fromProducts.getProduct(state.products, id);
@@ -32,6 +37,10 @@ export const getCartProducts = state => {
   }))
 }
 
+export function* rootSaga () {
+  yield all([counterSaga()]);
+}
+
 // Root Reducer
 export default combineReducers({
   todos,
@@ -39,5 +48,6 @@ export default combineReducers({
   cart,
   products,
   postsBySubreddit,
-  selectedSubreddit
+  selectedSubreddit,
+  counter,
 });

@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import Todo from './Todo';
 import Cart from './Cart';
 import Async from './Async';
+import Counter from './Counter';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route index element={<Todo />} />
         <Route path="cart" element={<Cart />} />
         <Route path="async" element={<Async />} />
+        <Route path="counter" element={<Counter />} />
         <Route path="*" element={<NoMatch />} />
       </Route>
     </Routes>
