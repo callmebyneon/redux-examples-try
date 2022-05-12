@@ -8,6 +8,10 @@ This repository follows below example from [redux document](https://ko.redux.js.
 
 - [#async](https://redux.js.org/introduction/examples/#async)
 
+And for Counter's advanced function, refer to the article below.
+
+- [redux-saga가 해결하는 문제](https://min9nim.vercel.app/2020-04-23-redux-saga/) by min9nim
+
 ```
 📂src
  ┣ 📂actions
