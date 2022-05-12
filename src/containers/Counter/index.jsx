@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { increament, decreament, applyRandom, reset } from '../../reducers/Counter';
+import { increament, decreament, multiplication, applyRandom, reset } from '../../reducers/Counter';
 
 import OuterSection from '~/components/Layout/OuterSection';
 import Title from '~/components/Layout/Title';
@@ -37,15 +37,18 @@ const CalcPath = styled.p`
 `;
 
 const Stack = styled.div`
-  width: 225px;
+  width: 260px;
   display: flex;
   flex-direction: ${props => props.direction || 'row'};
   align-self: center;
+  & button {
+    width: 100%;
+  }
 `;
 
 const Counter = () => {
-  const { isLoading, count, path } = useSelector(state => ({
-    isLoading: state.counter.isLoading,
+  const [isLoading, setLoading] = React.useState(false);
+  const { count, path } = useSelector(state => ({
     count: state.counter.count,
     path: state.counter.path,
   }));
@@ -53,7 +56,11 @@ const Counter = () => {
   
   const onIncrease = diff => dispatch(increament(diff));
   const onDecrease = diff => dispatch(decreament(diff));
-  const onApplyRandom = async (max = 15) => dispatch(applyRandom(max));
+  const onMultiply = diff => dispatch(multiplication(diff));
+  // const onApplyRandom = async (max = 15) => dispatch(applyRandom(max));
+  const onApplyRandom = (max = 15) => {
+    dispatch({ type: "counter/APPLY_RANDOM", setLoading, max });
+  };
   const onReset = () => dispatch(reset());
   
   return (
@@ -65,14 +72,18 @@ const Counter = () => {
       <CalcPath>{path}</CalcPath>
       {isLoading && <p className='loader'>loading...</p>}
       <hr />
-      <Stack direction="row">
-        <button disabled={isLoading} onClick={() => onIncrease(1)}>+1</button>
-        <button disabled={isLoading} onClick={() => onDecrease(1)}>-1</button>
-        <button disabled={isLoading} onClick={() => onIncrease(5)}>+5</button>
-        <button disabled={isLoading} onClick={() => onDecrease(5)}>-5</button>
+      <Stack direction="row" strech>
+        <button disabled={isLoading} onClick={() => onIncrease(1)}>＋1</button>
+        <button disabled={isLoading} onClick={() => onDecrease(1)}>－1</button>
+        <button disabled={isLoading} onClick={() => onIncrease(5)}>＋5</button>
+        <button disabled={isLoading} onClick={() => onDecrease(5)}>－5</button>
       </Stack>
       <Stack direction="row">
-        <button disabled={isLoading} onClick={() => onApplyRandom(30)}>add random number twice</button>
+        <button disabled={isLoading} onClick={() => onMultiply(2)}>×2</button>
+        <button disabled={isLoading} onClick={() => onMultiply(5)}>×5</button>
+      </Stack>
+      <Stack direction="row">
+        <button disabled={isLoading} onClick={() => onApplyRandom(10)}>＋× random number twice</button>
       </Stack>
       <Stack direction="row">
         <button disabled={isLoading} onClick={() => onReset()}>reset</button>
