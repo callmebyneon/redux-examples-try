@@ -36,10 +36,10 @@ export const applyRandom = (max) => async (dispatch) => {
 function* applyRandomSaga(action) {
   console.log('# action in saga',action)
   yield call(action.setLoading, true)
-  const random1 = yield call(fetchNumber(action.max));
+  const random1 = yield call(fetchNumber, action.max);
   yield put(increament(random1));
-  const random2 = yield call(fetchNumber(action.max));
-  yield put(increament(random2));
+  const random2 = yield call(fetchNumber, action.max);
+  yield put(multiplication(random2));
   yield call(action.setLoading, false)
 }
 export function* counterSaga() {
