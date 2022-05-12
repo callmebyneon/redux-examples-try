@@ -9,24 +9,37 @@ This repository follows below example from [redux document](https://ko.redux.js.
 - [#async](https://redux.js.org/introduction/examples/#async)
 
 ```
-📁src
- ┣ 📁actions
+📂src
+ ┣ 📂actions
+ ┃ ┣ AsyncActions.jsx
+ ┃ ┣ CartActions.jsx
  ┃ ┗ TodoActions.jsx
- ┣ 📁assets
- ┃ ┣ 📁image
+ ┣ 📂api
+ ┃ ┣ number.js
+ ┃ ┣ products.json
+ ┃ ┗ shop.js
+ ┣ 📂assets
+ ┃ ┣ 📂image
+ ┃ ┃ ┣ async_load-example-image.png
+ ┃ ┃ ┣ cart-example-image.png
  ┃ ┃ ┣ todo-basic-example-image.png
  ┃ ┃ ┗ todo-example-image.png
- ┃ ┗ 📁scss
+ ┃ ┗ 📂scss
  ┃ ┃ ┗ index.scss
- ┣ 📁components
- ┃ ┣ 📁Async
- ┃ ┃ ┗ index.jsx
- ┃ ┣ 📁Cart
- ┃ ┃ ┗ index.jsx
- ┃ ┣ 📁Layout
+ ┣ 📂components
+ ┃ ┣ 📂Async
+ ┃ ┃ ┣ Picker.jsx
+ ┃ ┃ ┗ Posts.jsx
+ ┃ ┣ 📂Cart
  ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ OuterSection.jsx
- ┃ ┗ 📁Todo
+ ┃ ┃ ┣ Product.jsx
+ ┃ ┃ ┣ ProductItem.jsx
+ ┃ ┃ ┗ ProductsList.jsx
+ ┃ ┣ 📂Layout
+ ┃ ┃ ┣ index.jsx
+ ┃ ┃ ┣ OuterSection.jsx
+ ┃ ┃ ┗ Title.jsx
+ ┃ ┗ 📂Todo
  ┃ ┃ ┣ Footer.jsx
  ┃ ┃ ┣ Footer.spec.jsx
  ┃ ┃ ┣ Header.jsx
@@ -41,13 +54,19 @@ This repository follows below example from [redux document](https://ko.redux.js.
  ┃ ┃ ┣ TodoList.spec.jsx
  ┃ ┃ ┣ TodoTextInput.jsx
  ┃ ┃ ┗ TodoTextInput.spec.jsx
- ┣ 📁constants
+ ┣ 📂constants
  ┃ ┣ ActionTypes.jsx
  ┃ ┗ TodoFilters.jsx
- ┣ 📁containers
- ┃ ┣ 📁Async
- ┃ ┣ 📁Cart
- ┃ ┣ 📁Todo
+ ┣ 📂containers
+ ┃ ┣ 📂Async
+ ┃ ┃ ┗ index.jsx
+ ┃ ┣ 📂Cart
+ ┃ ┃ ┣ CartContainer.jsx
+ ┃ ┃ ┣ index.jsx
+ ┃ ┃ ┗ ProductsContainer.jsx
+ ┃ ┣ 📂Counter
+ ┃ ┃ ┗ index.jsx
+ ┃ ┣ 📂Todo
  ┃ ┃ ┣ FilterLink.jsx
  ┃ ┃ ┣ Header.jsx
  ┃ ┃ ┣ index.jsx
@@ -55,13 +74,23 @@ This repository follows below example from [redux document](https://ko.redux.js.
  ┃ ┃ ┣ MainSection.jsx
  ┃ ┃ ┗ VisibleTodoList.jsx
  ┃ ┗ App.jsx
- ┣ 📁reducers
- ┃ ┣ 📁Todo
+ ┣ 📂lib
+ ┃ ┗ asyncUtils.jsx
+ ┣ 📂reducers
+ ┃ ┣ 📂Cart
+ ┃ ┃ ┣ cart.jsx
+ ┃ ┃ ┣ cart.spec.jsx
+ ┃ ┃ ┗ products.jsx
+ ┃ ┣ 📂Todo
  ┃ ┃ ┣ todos.jsx
  ┃ ┃ ┣ todos.spec.jsx
  ┃ ┃ ┗ visibilityFilter.jsx
+ ┃ ┣ Async.jsx
+ ┃ ┣ Counter.jsx
  ┃ ┗ index.jsx
- ┣ 📁selectors
+ ┣ 📂selectors
+ ┃ ┗ index.jsx
+ ┣ 📂theme
  ┃ ┗ index.jsx
  ┗ index.jsx
 ```
