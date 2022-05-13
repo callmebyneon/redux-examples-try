@@ -46,6 +46,16 @@ const Stack = styled.div`
   }
 `;
 
+const LoadingIndicator = () => {
+  // Side "Effect"
+  React.useEffect(() => {
+    console.log('%c !! run only this loader did mount or did update.', 'color:pink;');
+    return () => console.log('%c !! run only this loader unmouted.', 'color:pink;');
+  }, []);
+  
+  return <p className="loader">loading...</p>;
+};
+
 const Counter = () => {
   const [isLoading, setLoading] = React.useState(false);
   const { count, path } = useSelector(state => ({
@@ -53,6 +63,8 @@ const Counter = () => {
     path: state.counter.path,
   }));
   const dispatch = useDispatch();
+
+  console.log(React.useState(true));
   
   const onIncrease = diff => dispatch(increament(diff));
   const onDecrease = diff => dispatch(decreament(diff));
@@ -70,7 +82,7 @@ const Counter = () => {
       {/* Advanced Counter */}
       <CalcResult>{count}</CalcResult>
       <CalcPath>{path}</CalcPath>
-      {isLoading && <p className='loader'>loading...</p>}
+      {isLoading && <LoadingIndicator />}
       <hr />
       <Stack direction="row" strech>
         <button disabled={isLoading} onClick={() => onIncrease(1)}>＋1</button>
